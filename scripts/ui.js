@@ -119,13 +119,15 @@ export function showPointFeedback(points) {
 }
 
 
-export function displayResults(score, choices, timeTotal, profile) {
+export function displayResults(score, choices, timeTakenString, profile) {
     elements.finalScore.textContent = score;
     elements.pathSummary.textContent = choices.join(', ') || 'N/A';
-    elements.timeTaken.textContent = `${timeTotal - gameState.gameTimeRemaining} seconds`;
+    // Use the passed string directly
+    elements.timeTaken.textContent = timeTakenString;
 
     elements.profileType.textContent = profile.type;
-    elements.profileType.className = profile.type.toLowerCase().replace(' ', '-'); // For CSS styling
+    // Ensure class name is safe for CSS (lowercase, replace space with hyphen)
+    elements.profileType.className = profile.type.toLowerCase().replace(/\s+/g, '-');
     elements.profileDescription.textContent = profile.description;
     elements.profileStrength.textContent = profile.strength;
     elements.profileChallenge.textContent = profile.challenge;

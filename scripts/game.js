@@ -125,10 +125,15 @@ function endGame(timedOut = false) {
 
     const profile = calculateRiskProfile(gameState.choices);
 
+    // Calculate time taken string HERE
+    const timeElapsed = gameState.gameTimeTotal - gameState.gameTimeRemaining;
+    const timeTakenString = `${timeElapsed} second${timeElapsed !== 1 ? 's' : ''}`; // Handle pluralization
+
     displayResults(
         gameState.score,
         gameState.choices,
-        gameState.gameTimeTotal, // Pass total time for calculation in UI
+        // timeTotal, // No longer pass total time
+        timeTakenString, // Pass the calculated string instead
         profile
     );
     showScreen('results-screen');
