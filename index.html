@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treasure Path: Risk Assessment</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div id="game-container">
+
+        <div id="initial-screen" class="screen active">
+            <h1>Treasure Path</h1>
+            <p class="tagline">What kind of adventurer are you?</p>
+            <p class="instructions">Choose your path wisely. Complete the journey in under 60 seconds.</p>
+            <button id="start-button">Start Adventure</button>
+        </div>
+
+        <div id="game-screen" class="screen">
+            <div id="status-bar">
+                <span>Score: <span id="score-display">0</span></span>
+                <span>Time: <span id="timer-display">01:00</span></span>
+                <span>Junction: <span id="progress-display">0/3</span></span>
+            </div>
+            <div id="game-board">
+                <p id="junction-question">Choose your path:</p>
+                <div id="decision-timer-container">
+                    <div id="decision-timer-visual"></div>
+                </div>
+                <div class="paths">
+                    <div id="safe-path" class="path-option" data-path-type="safe">
+                        <span class="path-label">Safe Path</span>
+                        <span id="safe-path-value" class="path-value"></span>
+                    </div>
+                    <div id="risky-path" class="path-option" data-path-type="risky">
+                         <span class="path-label">Risky Path</span>
+                         <span class="path-value">?</span>
+                    </div>
+                </div>
+                 <div id="player-avatar"></div>
+                 <div id="point-feedback"></div>
+            </div>
+        </div>
+
+        <div id="results-screen" class="screen">
+            <h2>Your Adventure Summary</h2>
+            <p>Final Score: <span id="final-score"></span></p>
+            <p>Path Choices: <span id="path-summary"></span></p>
+            <p>Time Taken: <span id="time-taken"></span></p>
+
+            <h2>Your Risk Profile</h2>
+            <h3 id="profile-type"></h3>
+            <p id="profile-description"></p>
+            <p><strong>Strength:</strong> <span id="profile-strength"></span></p>
+            <p><strong>Challenge:</strong> <span id="profile-challenge"></span></p>
+
+            <button id="play-again-button">Play Again</button>
+        </div>
+
+    </div>
+
+    <script type="module" src="scripts/game.js"></script>
+</body>
+</html>
